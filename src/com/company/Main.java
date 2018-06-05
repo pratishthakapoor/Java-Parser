@@ -13,17 +13,22 @@ public class Main {
 
         //source and destination folder address for the error 402 type
 
-        String sourceFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/402 type";
-        String destinationFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/402 result";
+        /*String sourceFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/402 type";
+        String destinationFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/402 result";*/
 
         /*String sourceFolder401 = "C:/Users/ictsadmin/Desktop/PDD Alerts/401 type";
         String destinationFolder401 = "C:/Users/ictsadmin/Desktop/PDD Alerts/401 result";*/
 
         // call to the reandAndProcess method of the controller class
 
-        Controller.readAndProcess(sourceFolder, destinationFolder);
+        // Controller.readAndProcess(sourceFolder, destinationFolder);
 
        // Controller401.readAndProcessFiles(sourceFolder401, destinationFolder401);
+
+        String sourceFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/403 type";
+        String destinationFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/403 result";
+
+        Controller403.readAndProcess(sourceFolder, destinationFolder);
     }
 
     private static void ReadFile() throws IOException {
