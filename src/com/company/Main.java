@@ -23,10 +23,15 @@ public class Main {
 
         // Controller.readAndProcess(sourceFolder, destinationFolder);
 
-       // Controller401.readAndProcessFiles(sourceFolder401, destinationFolder401);
+        /*Controller401.readAndProcessFiles(sourceFolder401, destinationFolder401);*/
 
-        String sourceFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/403 type";
-        String destinationFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/403 result";
+        /*String sourceFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/403 type";
+        String destinationFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/403 result";*/
+
+        //Folder details for common alert folders
+
+        String sourceFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/alerts";
+        String destinationFolder = "C:/Users/ictsadmin/Desktop/PDD Alerts/alert results";
 
         Controller403.readAndProcess(sourceFolder, destinationFolder);
     }

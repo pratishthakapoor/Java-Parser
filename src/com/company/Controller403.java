@@ -60,7 +60,7 @@ public class Controller403 {
             String CurrentLine;
             ArrayList logPojo;
 
-            for(logPojo = new ArrayList(); (CurrentLine = bufferedReader.readLine()) != null; hostQuery += CurrentLine )
+            for(logPojo = new ArrayList(); (CurrentLine = bufferedReader.readLine()) != null; hostQuery += CurrentLine + ",")
             {
                // hostQuery += CurrentLine + "\r\n";
                 if(Pattern.matches("\\[\\d*\\].*$", CurrentLine))
@@ -97,13 +97,18 @@ public class Controller403 {
 
    private static void writeToCsv(List<Controller403.LogPOJO> logPojo) throws IOException, WriteException {
 
+        if(fileName.indexOf(".") > 0)
+        {
+            fileName = fileName.substring(0, fileName.lastIndexOf("."));
+        }
+
        //WritableWorkbook workbook = Workbook.createWorkbook(new File(destinationLocation + "\\" + fileName + ".xls"));
-       WritableWorkbook workbook = Workbook.createWorkbook(new File(destinationLocation + "\\" + fileName + ".txt"));
+       WritableWorkbook workbook = Workbook.createWorkbook(new File(destinationLocation + "\\" + fileName + ".xls"));
        WritableSheet workSheet = workbook.createSheet("Book", 0);
        ArrayList<String> keySet = new ArrayList<>();
-       keySet.add("Timestamp");
-       keySet.add("ErrorOccured ");
-       keySet.add("ErrorDescription");
+       keySet.add("time");
+       keySet.add("erroroccured");
+       keySet.add("description");
 
 
        int c= 1;
@@ -149,9 +154,13 @@ public class Controller403 {
     private static Object parser(String hostQuery) {
 
         Controller403.LogPOJO lPojo = new Controller403.LogPOJO();
-        lPojo.TimeStamp = hostQuery.substring(hostQuery.indexOf(""), hostQuery.indexOf("e"));
+        lPojo.TimeStamp = hostQuery.substring(hostQuery.indexOf(" ") + " ".length(), hostQuery.indexOf("e"));
         if(hostQuery.contains("e Session") || hostQuery.contains(" e ExprConversionTo") || hostQuery.contains("e SessionRemoteReq")){
-            lPojo.ErrorClass = hostQuery.substring(hostQuery.indexOf("e") + "e".length(), hostQuery.indexOf(" : "));
+            lPojo.ErrorClass = hostQuery.substring(hostQuery.indexOf("e") + "e".length(), hostQuery.lastIndexOf(" "));
+        }
+        else if(hostQuery.contains("e ProcedureRuntime"))
+        {
+            lPojo.ErrorClass = hostQuery.substring(hostQuery.indexOf("e") + "e".length(), hostQuery.lastIndexOf(""));
         }
         else
         {
@@ -160,7 +169,8 @@ public class Controller403 {
 
         //lPojo.ErrorClass = hostQuery.substring(hostQuery.indexOf("e") + "e".length(), hostQuery.indexOf("  "));
 
-        lPojo.ErrorDescription = hostQuery.substring(hostQuery.indexOf(" :") + ":".length(), hostQuery.length());
+        lPojo.ErrorDescription = hostQuery.substring(hostQuery.indexOf(" : ") + ": ".length(), hostQuery.indexOf(","));
+
 
         return lPojo;
     }
