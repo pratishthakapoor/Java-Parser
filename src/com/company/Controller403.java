@@ -156,7 +156,8 @@ public class Controller403 {
         Controller403.LogPOJO lPojo = new Controller403.LogPOJO();
         lPojo.TimeStamp = hostQuery.substring(hostQuery.indexOf(" ") + " ".length(), hostQuery.indexOf("e"));
         if(hostQuery.contains("e Session") || hostQuery.contains(" e ExprConversionTo") || hostQuery.contains("e SessionRemoteReq")){
-            lPojo.ErrorClass = hostQuery.substring(hostQuery.indexOf("e") + "e".length(), hostQuery.lastIndexOf(" "));
+          // lPojo.ErrorClass = hostQuery.substring(hostQuery.indexOf("e") + "e".length(), hostQuery.indexOf(""));
+           lPojo.ErrorClass = hostQuery.substring(hostQuery.indexOf("e") + "e".length() ,hostQuery.indexOf(" :"));
         }
         else if(hostQuery.contains("e ProcedureRuntime"))
         {
@@ -169,7 +170,10 @@ public class Controller403 {
 
         //lPojo.ErrorClass = hostQuery.substring(hostQuery.indexOf("e") + "e".length(), hostQuery.indexOf("  "));
 
-        lPojo.ErrorDescription = hostQuery.substring(hostQuery.indexOf(" : ") + ": ".length(), hostQuery.indexOf(","));
+        //lPojo.ErrorDescription = hostQuery.substring(hostQuery.indexOf(" : ") + ": ".length(), hostQuery.indexOf(","));
+
+        lPojo.ErrorDescription = hostQuery.substring(hostQuery.indexOf(" : ") + ": ".length(), hostQuery.length());
+
 
 
         return lPojo;
