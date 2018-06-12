@@ -43,7 +43,7 @@
       <file leaf-file-name="Controller403.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Controller403.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="697">
               <caret line="159" column="110" lean-forward="true" selection-start-line="159" selection-start-column="110" selection-end-line="159" selection-end-column="110" />
             </state>
           </provider>
@@ -84,7 +84,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="256" />
     <option name="y" value="77" />
     <option name="width" value="960" />
@@ -192,7 +192,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -603,7 +604,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Controller403.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
+        <state relative-caret-position="697">
           <caret line="159" column="110" lean-forward="true" selection-start-line="159" selection-start-column="110" selection-end-line="159" selection-end-column="110" />
         </state>
       </provider>
